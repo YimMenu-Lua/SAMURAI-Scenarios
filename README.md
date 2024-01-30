@@ -2,7 +2,10 @@
 Lua script to play GTA Online scenarios using YimMenu.
 
 
-![Screenshot 2024-01-30 104610](https://github.com/xesdoog/Yim-Scenarios/assets/66764345/6d6c3d45-5372-4d7f-9503-94124529f99f)
+![Screenshot 2024-01-30 104610](https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/2baccc0a-ddfa-4562-86b5-ce69a9de64f1)
+
+
+![Screenshot 2024-01-30 111821](https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/0158d270-f870-415e-9033-cfd48d727573)
 
 # Future Improvements
 Assuming I could figure it out, I want to add a search function so that users can easily find the scenario they want to play.
