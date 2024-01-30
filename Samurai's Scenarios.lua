@@ -105,11 +105,17 @@ local ped = PLAYER.PLAYER_PED_ID()
 scenario_browser_tab = scenariomenu:add_imgui(function()
     ImGui.Text("Ped Scenarios")
     selected_scenario = ImGui.Combo("Choose a Scenario", selected_scenario, PedScenarios, 97)
-    if ImGui.Button("Play") then
-        TASK.TASK_START_SCENARIO_IN_PLACE(ped, PedScenarios[selected_scenario + 1], -1, true)
-    end
+        if ImGui.Button("Play") then
+            script.run_in_fiber(function(script)
+                TASK.TASK_START_SCENARIO_IN_PLACE(ped, PedScenarios[selected_scenario + 1], -1, true)
+                    script:sleep(1000)
+            end)
+        end
     ImGui.SameLine()
         if ImGui.Button("Stop") then
-            TASK.CLEAR_PED_TASKS(ped)
+            script.run_in_fiber(function(script)
+                TASK.CLEAR_PED_TASKS(ped)
+                script:sleep(1000)
+            end)
         end
 end)
