@@ -1,6 +1,6 @@
-scenariomenu = gui.get_tab ("SAMURAI's Scenarios")
-
-local PedScenarios = {
+scenarios_menu = gui.get_tab("YimScenarios")
+ 
+local ped_scenarios = {
     "WORLD_HUMAN_BINOCULARS",
     "WORLD_HUMAN_BUM_FREEWAY",
     "WORLD_HUMAN_BUM_SLUMPED",
@@ -99,23 +99,51 @@ local PedScenarios = {
     "PROP_HUMAN_MOVIE_BULB",
     "PROP_HUMAN_MOVIE_STUDIO_LIGHT"
 }
-
+ 
 local selected_scenario = 0
-local ped = PLAYER.PLAYER_PED_ID()
-scenario_browser_tab = scenariomenu:add_imgui(function()
-    ImGui.Text("Ped Scenarios")
-    selected_scenario = ImGui.Combo("Choose a Scenario", selected_scenario, PedScenarios, 97)
-        if ImGui.Button("Play") then
-            script.run_in_fiber(function(script)
-                TASK.TASK_START_SCENARIO_IN_PLACE(ped, PedScenarios[selected_scenario + 1], -1, true)
-                    script:sleep(1000)
-            end)
+local filter_text = ""
+local is_typing = false
+ 
+event.register_handler(menu_event.ScriptsReloaded, function()
+	TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
+end)
+ 
+event.register_handler(menu_event.MenuUnloaded, function()
+	TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
+end)
+ 
+script.register_looped("YimScenarios", function()
+	if is_typing then
+		PAD.DISABLE_ALL_CONTROL_ACTIONS(0)
+	end
+end)
+ 
+scenarios_menu:add_imgui(function()
+    filter_text = ImGui.InputText("Choose a Scenario", filter_text, 100)
+	if ImGui.IsItemActive() then
+		is_typing = true
+	else
+		is_typing = false
+	end
+ 
+    if ImGui.BeginListBox("##scenarios", 400, 200) then
+        for index, item in ipairs(ped_scenarios) do
+            if string.find(item:lower(), filter_text:lower()) then
+                if ImGui.Selectable(item) then
+                    selected_scenario = index
+					script.run_in_fiber(function()
+						TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
+						TASK.TASK_START_SCENARIO_IN_PLACE(self.get_ped(), ped_scenarios[selected_scenario], -1, true)
+					end)
+                end
+            end
         end
-    ImGui.SameLine()
-        if ImGui.Button("Stop") then
-            script.run_in_fiber(function(script)
-                TASK.CLEAR_PED_TASKS(ped)
-                script:sleep(1000)
-            end)
-        end
+        ImGui.EndListBox()
+    end
+ 
+    if ImGui.Button("Stop Scenario") then
+        script.run_in_fiber(function()
+			TASK.CLEAR_PED_TASKS(self.get_ped())
+		end)
+    end
 end)
