@@ -15,7 +15,7 @@ Lua script to play GTA Online scenarios using YimMenu.
 
 # Known Issues
 
-None ate the moment.
+None at the moment.
 
 # Credits
 
@@ -23,3 +23,4 @@ None ate the moment.
 
 [ShinyWasabi](https://github.com/ShinyWasabi) for inspiring the layout of the menu.
 
+[lonelybud](https://github.com/lonelybud) for helping me fix crash issues.
