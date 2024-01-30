@@ -15,9 +15,7 @@ Lua script to play GTA Online scenarios using YimMenu.
 
 # Known Issues
 
-Some scenarios crash the game. I have no idea why and I'm currently looking into it.
-
-I will probably just delete the problematic ones if I can't fix them.
+None ate the moment.
 
 # Credits
 
