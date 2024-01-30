@@ -12,8 +12,15 @@ Assuming I could figure it out, I want to add a search function so that users ca
 
 Any help with this would be much appreciated.
 
+# Known Issues
+
+Some scenarios crash the game. I have no idea why and I'm currently looking into it.
+
+I will probably just delete the problematic ones if I can't fix them.
+
 # Credits
 
 [TheKingBugga](https://www.unknowncheats.me/forum/members/2987262.html) on UC for helping with issues.
 
 [ShinyWasabi](https://github.com/ShinyWasabi) for inspiring the layout of the menu.
+
