@@ -99,14 +99,6 @@ local scenario_index = 1
 local searchQuery = ""
 local is_typing = false
 
-event.register_handler(menu_event.ScriptsReloaded, function()
-	TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
-end)
- 
-event.register_handler(menu_event.MenuUnloaded, function()
-	TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
-end)
- 
 script.register_looped("YimScenarios", function()
 	if is_typing then
 		PAD.DISABLE_ALL_CONTROL_ACTIONS(0)
@@ -150,20 +142,53 @@ scenario_player:add_separator()
 
 scenario_player:add_imgui(function()
 local data = filteredScenarios[scenario_index+1]
+local ped = self.get_ped()
     if ImGui.Button("Play") then
-		script.run_in_fiber(function()
-		    TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
-			TASK.TASK_START_SCENARIO_IN_PLACE(self.get_ped(), data.scenario, -1, true)
-            is_playing_scenario = true
-        end)
+        if scenario_index == 2 then
+            local coords = ENTITY.GET_ENTITY_COORDS(ped, false)
+            local heading = ENTITY.GET_ENTITY_HEADING(ped)
+            local forwardX = ENTITY.GET_ENTITY_FORWARD_X(ped)
+            local forwardY = ENTITY.GET_ENTITY_FORWARD_Y(ped)
+            script.run_in_fiber(function()
+                while not STREAMING.HAS_MODEL_LOADED(286252949) do
+                    STREAMING.REQUEST_MODEL(286252949)
+                    coroutine.yield()
+                end
+                prop = OBJECT.CREATE_OBJECT(286252949, coords.x + (forwardX), coords.y + (forwardY), coords.z, true, true, false)
+                ENTITY.SET_ENTITY_HEADING(prop, heading)
+                OBJECT.PLACE_OBJECT_ON_GROUND_PROPERLY(prop)
+                STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(286252949)
+		TASK.CLEAR_PED_TASKS_IMMEDIATELY(ped)
+		TASK.TASK_START_SCENARIO_IN_PLACE(ped, data.scenario, -1, true)
+                is_playing_scenario = true
+            end)
+        else
+            script.run_in_fiber(function()
+	    	TASK.CLEAR_PED_TASKS_IMMEDIATELY(ped)
+	    	TASK.TASK_START_SCENARIO_IN_PLACE(ped, data.scenario, -1, true)
+            	is_playing_scenario = true
+            end)
+        end
     end
 
     ImGui.SameLine()
 
     if ImGui.Button("Stop") then
         script.run_in_fiber(function()
-			TASK.CLEAR_PED_TASKS(self.get_ped())
+            ENTITY.DELETE_ENTITY(prop)
+	    TASK.CLEAR_PED_TASKS(ped)
             is_playing_scenario = false
-		end)
+	end)
     end
+		
+    event.register_handler(menu_event.ScriptsReloaded, function()
+	ENTITY.DELETE_ENTITY(prop)
+	TASK.CLEAR_PED_TASKS_IMMEDIATELY(ped)
+    end)
+ 
+    event.register_handler(menu_event.MenuUnloaded, function()
+	ENTITY.DELETE_ENTITY(prop)
+	TASK.CLEAR_PED_TASKS_IMMEDIATELY(ped)
+    end)
+		
 end)
