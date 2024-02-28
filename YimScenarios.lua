@@ -1,109 +1,104 @@
-scenarios_menu = gui.get_tab("YimScenarios")
+---@diagnostic disable: undefined-global, lowercase-global
+
+scenario_player = gui.get_tab("YimScenarios")
  
 local ped_scenarios = {
-    "WORLD_HUMAN_BINOCULARS",
-    "WORLD_HUMAN_BUM_FREEWAY",
-    "WORLD_HUMAN_BUM_SLUMPED",
-    "WORLD_HUMAN_BUM_STANDING",
-    "WORLD_HUMAN_BUM_WASH",
-    "WORLD_HUMAN_CAR_PARK_ATTENDANT",
-    "WORLD_HUMAN_CHEERING",
-    "WORLD_HUMAN_CLIPBOARD",
-    "WORLD_HUMAN_CLIPBOARD_FACILITY",
-    "WORLD_HUMAN_CONST_DRILL",
-    "WORLD_HUMAN_COP_IDLES",
-    "WORLD_HUMAN_DRINKING",
-    "WORLD_HUMAN_DRINKING_FACILITY",
-    "WORLD_HUMAN_DRINKING_CASINO_TERRACE",
-    "WORLD_HUMAN_DRUG_DEALER",
-    "WORLD_HUMAN_DRUG_DEALER_HARD",
-    "WORLD_HUMAN_DRUG_FIELD_WORKERS_RAKE",
-    "WORLD_HUMAN_DRUG_FIELD_WORKERS_WEEDING",
-    "WORLD_HUMAN_DRUG_PROCESSORS_COKE",
-    "WORLD_HUMAN_DRUG_PROCESSORS_WEED",
-    "WORLD_HUMAN_MOBILE_FILM_SHOCKING",
-    "WORLD_HUMAN_GARDENER_LEAF_BLOWER",
-    "WORLD_HUMAN_GARDENER_PLANT",
-    "WORLD_HUMAN_GOLF_PLAYER",
-    "WORLD_HUMAN_GUARD_PATROL",
-    "WORLD_HUMAN_GUARD_STAND",
-    "WORLD_HUMAN_HAMMERING",
-    "WORLD_HUMAN_HANG_OUT_STREET",
-    "WORLD_HUMAN_HIKER",
-    "WORLD_HUMAN_HIKER_STANDING",
-    "WORLD_HUMAN_HUMAN_STATUE",
-    "WORLD_HUMAN_INSPECT_CROUCH",
-    "WORLD_HUMAN_INSPECT_STAND",
-    "WORLD_HUMAN_JANITOR",
-    "WORLD_HUMAN_JOG",
-    "WORLD_HUMAN_LEANING",
-    "WORLD_HUMAN_LEANING_CASINO_TERRACE",
-    "WORLD_HUMAN_MAID_CLEAN",
-    "WORLD_HUMAN_MUSCLE_FLEX",
-    "WORLD_HUMAN_MUSCLE_FREE_WEIGHTS",
-    "WORLD_HUMAN_MUSICIAN",
-    "WORLD_HUMAN_PAPARAZZI",
-    "WORLD_HUMAN_PARTYING",
-    "WORLD_HUMAN_PICNIC",
-    "WORLD_HUMAN_PROSTITUTE_HIGH_CLASS",
-    "WORLD_HUMAN_PROSTITUTE_LOW_CLASS",
-    "WORLD_HUMAN_PUSH_UPS",
-    "WORLD_HUMAN_SEAT_LEDGE",
-    "WORLD_HUMAN_SEAT_LEDGE_EATING",
-    "WORLD_HUMAN_SEAT_STEPS",
-    "WORLD_HUMAN_SEAT_WALL",
-    "WORLD_HUMAN_SEAT_WALL_EATING",
-    "WORLD_HUMAN_SECURITY_SHINE_TORCH",
-    "WORLD_HUMAN_SIT_UPS",
-    "WORLD_HUMAN_SMOKING",
-    "WORLD_HUMAN_SMOKING_POT",
-    "WORLD_HUMAN_STAND_FIRE",
-    "WORLD_HUMAN_STAND_FISHING",
-    "WORLD_HUMAN_STAND_IMPATIENT",
-    "WORLD_HUMAN_STAND_MOBILE",
-    "WORLD_HUMAN_STRIP_WATCH_STAND",
-    "WORLD_HUMAN_STUPOR",
-    "WORLD_HUMAN_SUNBATHE",
-    "WORLD_HUMAN_SUNBATHE_BACK",
-    "WORLD_HUMAN_TENNIS_PLAYER",
-    "WORLD_HUMAN_TOURIST_MAP",
-    "WORLD_HUMAN_TOURIST_MOBILE",
-    "WORLD_HUMAN_VALET",
-    "WORLD_HUMAN_VEHICLE_MECHANIC",
-    "WORLD_HUMAN_WELDING",
-    "WORLD_HUMAN_WINDOW_SHOP_BROWSE",
-    "WORLD_HUMAN_YOGA",
-    "PROP_HUMAN_ATM",
-    "PROP_HUMAN_BBQ",
-    "PROP_HUMAN_BUM_BIN",
-    "PROP_HUMAN_BUM_SHOPPING_CART",
-    "PROP_HUMAN_MUSCLE_CHIN_UPS",
-    "PROP_HUMAN_PARKING_METER",
-    "PROP_HUMAN_SEAT_ARMCHAIR",
-    "PROP_HUMAN_SEAT_BAR",
-    "PROP_HUMAN_SEAT_BENCH",
-    "PROP_HUMAN_SEAT_BENCH_DRINK",
-    "PROP_HUMAN_SEAT_BENCH_DRINK_BEER",
-    "PROP_HUMAN_SEAT_BENCH_FOOD",
-    "PROP_HUMAN_SEAT_BUS_STOP_WAIT",
-    "PROP_HUMAN_SEAT_CHAIR",
-    "PROP_HUMAN_SEAT_CHAIR_DRINK",
-    "PROP_HUMAN_SEAT_CHAIR_DRINK_BEER",
-    "PROP_HUMAN_SEAT_CHAIR_FOOD",
-    "PROP_HUMAN_SEAT_CHAIR_UPRIGHT",
-    "PROP_HUMAN_SEAT_DECKCHAIR",
-    "PROP_HUMAN_SEAT_DECKCHAIR_DRINK",
-    "PROP_HUMAN_SEAT_MUSCLE_BENCH_PRESS",
-    "PROP_HUMAN_SEAT_STRIP_WATCH",
-    "PROP_HUMAN_SEAT_SUNLOUNGER",
-    "PROP_HUMAN_MOVIE_BULB",
-    "PROP_HUMAN_MOVIE_STUDIO_LIGHT"
+    {scenario = "WORLD_HUMAN_STAND_MOBILE", name = "Browse Phone"},
+    {scenario = "WORLD_HUMAN_CHEERING", name = "Clap"},
+    {scenario = "PROP_HUMAN_BBQ", name = "Cook On BBQ"},
+    {scenario = "WORLD_HUMAN_CONST_DRILL", name = "Construction: Drill"},
+    {scenario = "WORLD_HUMAN_HAMMERING", name = "Construction: Hammer"},
+    {scenario = "WORLD_HUMAN_WELDING", name = "Construction: Welding Torch"},
+    {scenario = "WORLD_HUMAN_INSPECT_CROUCH", name = "Crouch"},
+    {scenario = "WORLD_HUMAN_DRINKING", name = "Drink Coffee"},
+    {scenario = "WORLD_HUMAN_DRUG_DEALER", name = "Drug Dealer Smoking"},
+    {scenario = "WORLD_HUMAN_DRUG_DEALER_HARD", name = "Drug Dealer Tough"},
+    {scenario = "PROP_HUMAN_BUM_BIN", name = "Dumpster Dive"},
+    {scenario = "WORLD_HUMAN_GARDENER_PLANT", name = "Field Planting"},
+    {scenario = "WORLD_HUMAN_DRUG_FIELD_WORKERS_RAKE", name = "Field Raking"},
+    {scenario = "WORLD_HUMAN_DRUG_FIELD_WORKERS_WEEDING", name = "Field Weeding"},
+    {scenario = "WORLD_HUMAN_MOBILE_FILM_SHOCKING", name = "Film Shocking Event"},
+    {scenario = "WORLD_HUMAN_MUSCLE_FLEX", name = "Flex Muscles"},
+    {scenario = "WORLD_HUMAN_MUSCLE_FREE_WEIGHTS", name = "Freeweights"},
+    {scenario = "WORLD_HUMAN_STAND_FISHING", name = "Go Fishing"},
+    {scenario = "WORLD_HUMAN_HANG_OUT_STREET", name = "Hangout (conversate)"},
+    {scenario = "WORLD_HUMAN_STRIP_WATCH_STAND", name = "Hangout (dance)"},
+    {scenario = "WORLD_HUMAN_HIKER", name = "Hiker"},
+    {scenario = "WORLD_HUMAN_BUM_FREEWAY", name = "HOBO Begging"},
+    {scenario = "PROP_HUMAN_BUM_SHOPPING_CART", name = "HOBO Leaning"},
+    {scenario = "WORLD_HUMAN_BUM_SLUMPED", name = "HOBO Sleeping"},
+    {scenario = "WORLD_HUMAN_BUM_STANDING", name = " HOBO Standing"},
+    {scenario = "WORLD_HUMAN_BUM_WASH", name = "HOBO Washing"},
+    {scenario = "WORLD_HUMAN_CLIPBOARD", name = "Hold Clipboard"},
+    {scenario = "WORLD_HUMAN_HUMAN_STATUE", name = "Human Statue"},
+    {scenario = "WORLD_HUMAN_INSPECT_STAND", name = "Inspect"},
+    {scenario = "WORLD_HUMAN_JANITOR", name = "Janitor"},
+    {scenario = "WORLD_HUMAN_JOG", name = "Jog"},
+    {scenario = "PROP_HUMAN_SEAT_SUNLOUNGER", name = "Lay On Sunlounger"},
+    {scenario = "WORLD_HUMAN_GARDENER_LEAF_BLOWER", name = "Leaf Blower"},
+    {scenario = "WORLD_HUMAN_LEANING", name = "Lean 01"},
+    {scenario = "WORLD_HUMAN_LEANING_CASINO_TERRACE", name = "Lean 02"},
+    {scenario = "WORLD_HUMAN_TOURIST_MAP", name = "Look At Tourist Map"},
+    {scenario = "WORLD_HUMAN_BINOCULARS", name = "Look Through Binoculars"},
+    {scenario = "WORLD_HUMAN_MAID_CLEAN", name = "Maid"},
+    {scenario = "WORLD_HUMAN_VEHICLE_MECHANIC", name = "Mechanic"},
+    {scenario = "WORLD_HUMAN_PAPARAZZI", name = "Paparazzi"},
+    {scenario = "WORLD_HUMAN_CAR_PARK_ATTENDANT", name = "Park Attendant"},
+    {scenario = "WORLD_HUMAN_PARTYING", name = "Party"},
+    {scenario = "PROP_HUMAN_PARKING_METER", name = "Pay For Parking"},
+    {scenario = "WORLD_HUMAN_PICNIC", name = "Picnic"},
+    {scenario = "WORLD_HUMAN_GOLF_PLAYER", name = "Player: Golf"},
+    {scenario = "WORLD_HUMAN_TENNIS_PLAYER", name = "Player: Tennis"},
+    {scenario = "WORLD_HUMAN_COP_IDLES", name = "Police: Idle"},
+    {scenario = "WORLD_HUMAN_DRUG_PROCESSORS_COKE", name = "Process Cocaine"},
+    {scenario = "WORLD_HUMAN_DRUG_PROCESSORS_WEED", name = "Process Weed"},
+    {scenario = "WORLD_HUMAN_PROSTITUTE_HIGH_CLASS", name = "Prostitute: High-Class"},
+    {scenario = "WORLD_HUMAN_PROSTITUTE_LOW_CLASS", name = "Prostitute: Low-Class"},
+    {scenario = "WORLD_HUMAN_GUARD_PATROL", name = "Security Guard (check)"},
+    {scenario = "WORLD_HUMAN_GUARD_STAND", name = "Security Guar (stand)"},
+    {scenario = "WORLD_HUMAN_SECURITY_SHINE_TORCH", name = "Security Guar (torch)"},
+    {scenario = "WORLD_HUMAN_SMOKING", name = "Smoke Cigarette"},
+    {scenario = "WORLD_HUMAN_SMOKING_POT", name = "Smoke Weed"},
+    {scenario = "PROP_HUMAN_SEAT_ARMCHAIR", name = "Sit On Armchair"},
+    {scenario = "PROP_HUMAN_SEAT_BAR", name = "Sit On Barstool"},
+    {scenario = "PROP_HUMAN_SEAT_BENCH", name = "Sit On Bench"},
+    {scenario = "PROP_HUMAN_SEAT_BENCH_DRINK", name = "Sit On Bench/Drink"},
+    {scenario = "PROP_HUMAN_SEAT_BENCH_DRINK_BEER", name = "Sit On Bench/Drink Beer"},
+    {scenario = "PROP_HUMAN_SEAT_BENCH_FOOD", name = "Sit On Bench/Eat"},
+    {scenario = "PROP_HUMAN_SEAT_CHAIR", name = "Sit On Chair"},
+    {scenario = "PROP_HUMAN_SEAT_CHAIR_DRINK", name = "Sit On Chair/Drink"},
+    {scenario = "PROP_HUMAN_SEAT_CHAIR_DRINK_BEER", name = "Sit On Chair/Drink Beer"},
+    {scenario = "PROP_HUMAN_SEAT_CHAIR_FOOD", name = "Sit On Chair/Eat"},
+    {scenario = "PROP_HUMAN_SEAT_CHAIR_UPRIGHT", name = "Sit On Chair Upright"},
+    {scenario = "PROP_HUMAN_SEAT_DECKCHAIR", name = "Sit On Deckchair"},
+    {scenario = "PROP_HUMAN_SEAT_DECKCHAIR_DRINK", name = "Sit On Deckchair/Drink"},
+    {scenario = "WORLD_HUMAN_SEAT_LEDGE", name = "Sit On Ledge"},
+    {scenario = "WORLD_HUMAN_SEAT_LEDGE_EATING", name = "Sit On Ledge/Eat"},
+    {scenario = "WORLD_HUMAN_SEAT_STEPS", name = "Sit On Steps"},
+    {scenario = "WORLD_HUMAN_SEAT_WALL", name = "Sit On Wall"},
+    {scenario = "WORLD_HUMAN_SEAT_WALL_EATING", name = "Sit On Wall/Eat"},
+    {scenario = "WORLD_HUMAN_STAND_IMPATIENT", name = "Stand Impatiently"},
+    {scenario = "WORLD_HUMAN_STAND_FIRE", name = "Stand Near Fire"},
+    {scenario = "WORLD_HUMAN_MUSICIAN", name = "Street Musician"},
+    {scenario = "WORLD_HUMAN_SUNBATHE_BACK", name = "Sunbathe (lay on back)"},
+    {scenario = "WORLD_HUMAN_SUNBATHE", name = "Sunbathe (lay on stomach)"},
+    {scenario = "WORLD_HUMAN_TOURIST_MOBILE", name = "Take Photo"},
+    {scenario = "PROP_HUMAN_ATM", name = "Use ATM"},
+    {scenario = "WORLD_HUMAN_VALET", name = "Valet"},
+    {scenario = "PROP_HUMAN_SEAT_BUS_STOP_WAIT", name = "Wait At Bus Stop"},
+    {scenario = "PROP_HUMAN_SEAT_STRIP_WATCH", name = "Watch Stripper"},
+    {scenario = "WORLD_HUMAN_WINDOW_SHOP_BROWSE", name = "Window Shop"},
+    {scenario = "PROP_HUMAN_SEAT_MUSCLE_BENCH_PRESS", name = "Workout: Bench Press"},
+    {scenario = "PROP_HUMAN_MUSCLE_CHIN_UPS", name = "Workout: Chin-ups"},
+    {scenario = "WORLD_HUMAN_PUSH_UPS", name = "Workout: Push-ups"},
+    {scenario = "WORLD_HUMAN_SIT_UPS", name = "Workout: Sit-ups"},
+    {scenario = "WORLD_HUMAN_YOGA", name = "Workout: Yoga"},
 }
  
-local selected_scenario = 0
-local filter_text = ""
+local scenario_index = 1
+local searchQuery = ""
 local is_typing = false
- 
+
 event.register_handler(menu_event.ScriptsReloaded, function()
 	TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
 end)
@@ -117,33 +112,58 @@ script.register_looped("YimScenarios", function()
 		PAD.DISABLE_ALL_CONTROL_ACTIONS(0)
 	end
 end)
- 
-scenarios_menu:add_imgui(function()
-    filter_text = ImGui.InputText("Choose a Scenario", filter_text, 100)
-	if ImGui.IsItemActive() then
+
+scenario_player:add_text("Search scenarios :")
+
+scenario_player:add_imgui(function()
+    searchQuery, used = ImGui.InputText("", searchQuery, 32)
+    if ImGui.IsItemActive() then
 		is_typing = true
 	else
 		is_typing = false
 	end
- 
-    if ImGui.BeginListBox("##scenarios", 400, 200) then
-        for index, item in ipairs(ped_scenarios) do
-            if string.find(item:lower(), filter_text:lower()) then
-                if ImGui.Selectable(item) then
-                    selected_scenario = index
-					script.run_in_fiber(function()
-						TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
-						TASK.TASK_START_SCENARIO_IN_PLACE(self.get_ped(), ped_scenarios[selected_scenario], -1, true)
-					end)
-                end
-            end
+    ImGui.PushItemWidth(250)
+end)
+
+local filteredScenarios = {}
+local function updatefilteredScenarios()
+    filteredScenarios = {}
+    for _, scene in ipairs(ped_scenarios) do
+        if string.find(string.lower(scene.name), string.lower(searchQuery)) then
+            table.insert(filteredScenarios, scene)
         end
-        ImGui.EndListBox()
     end
- 
-    if ImGui.Button("Stop Scenario") then
+end
+
+local function displayFilteredList()
+    updatefilteredScenarios()
+    local scenarioNames = {}
+    for _, scene in ipairs(filteredScenarios) do
+        table.insert(scenarioNames, scene.name)
+    end
+    scenario_index, used = ImGui.ListBox(" ", scenario_index, scenarioNames, #filteredScenarios)
+end
+
+scenario_player:add_imgui(displayFilteredList)
+
+scenario_player:add_separator()
+
+scenario_player:add_imgui(function()
+local data = filteredScenarios[scenario_index+1]
+    if ImGui.Button("Play") then
+		script.run_in_fiber(function()
+		    TASK.CLEAR_PED_TASKS_IMMEDIATELY(self.get_ped())
+			TASK.TASK_START_SCENARIO_IN_PLACE(self.get_ped(), data.scenario, -1, true)
+            is_playing_scenario = true
+        end)
+    end
+
+    ImGui.SameLine()
+
+    if ImGui.Button("Stop") then
         script.run_in_fiber(function()
 			TASK.CLEAR_PED_TASKS(self.get_ped())
+            is_playing_scenario = false
 		end)
     end
 end)
