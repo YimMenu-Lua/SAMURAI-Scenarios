@@ -18,8 +18,6 @@ local ped_scenarios = {
     {scenario = "WORLD_HUMAN_DRUG_FIELD_WORKERS_RAKE", name = "Field Raking"},
     {scenario = "WORLD_HUMAN_DRUG_FIELD_WORKERS_WEEDING", name = "Field Weeding"},
     {scenario = "WORLD_HUMAN_MOBILE_FILM_SHOCKING", name = "Film Shocking Event"},
-    {scenario = "WORLD_HUMAN_MUSCLE_FLEX", name = "Flex Muscles"},
-    {scenario = "WORLD_HUMAN_MUSCLE_FREE_WEIGHTS", name = "Freeweights"},
     {scenario = "WORLD_HUMAN_STAND_FISHING", name = "Go Fishing"},
     {scenario = "WORLD_HUMAN_HANG_OUT_STREET", name = "Hangout (conversate)"},
     {scenario = "WORLD_HUMAN_STRIP_WATCH_STAND", name = "Hangout (dance)"},
@@ -90,6 +88,8 @@ local ped_scenarios = {
     {scenario = "WORLD_HUMAN_WINDOW_SHOP_BROWSE", name = "Window Shop"},
     {scenario = "PROP_HUMAN_SEAT_MUSCLE_BENCH_PRESS", name = "Workout: Bench Press"},
     {scenario = "PROP_HUMAN_MUSCLE_CHIN_UPS", name = "Workout: Chin-ups"},
+    {scenario = "WORLD_HUMAN_MUSCLE_FLEX", name = "Workout: Flex Muscles"},
+    {scenario = "WORLD_HUMAN_MUSCLE_FREE_WEIGHTS", name = "Workout: Freeweights"},
     {scenario = "WORLD_HUMAN_PUSH_UPS", name = "Workout: Push-ups"},
     {scenario = "WORLD_HUMAN_SIT_UPS", name = "Workout: Sit-ups"},
     {scenario = "WORLD_HUMAN_YOGA", name = "Workout: Yoga"},
@@ -144,7 +144,7 @@ scenario_player:add_imgui(function()
 local data = filteredScenarios[scenario_index+1]
 local ped = self.get_ped()
     if ImGui.Button("Play") then
-        if scenario_index == 2 then
+        if data.name == "Cook On BBQ" then
             local coords = ENTITY.GET_ENTITY_COORDS(ped, false)
             local heading = ENTITY.GET_ENTITY_HEADING(ped)
             local forwardX = ENTITY.GET_ENTITY_FORWARD_X(ped)
