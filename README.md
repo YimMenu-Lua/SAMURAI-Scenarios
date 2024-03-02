@@ -2,7 +2,8 @@
 <p align="center"> Lua script to play GTA Online scenarios using YimMenu. </p>
 
 
-<p align="center"> <img src="https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/cb962009-7717-4197-a5fa-3628689902e9"> </p>
+<p align="center"> <img src="https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/f2d76cf7-e9e0-4bdc-889a-544d3ac3134b"> </p>
+
 
 
 ![Screenshot 2024-01-30 111821](https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/0158d270-f870-415e-9033-cfd48d727573)
