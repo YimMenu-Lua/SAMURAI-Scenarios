@@ -10,7 +10,7 @@ local ped_scenarios = {
     {scenario = "WORLD_HUMAN_HAMMERING", name = "Construction: Hammer"},
     {scenario = "WORLD_HUMAN_WELDING", name = "Construction: Welding Torch"},
     {scenario = "WORLD_HUMAN_INSPECT_CROUCH", name = "Crouch"},
-    {scenario = "WORLD_HUMAN_DRINKING", name = "Drink Coffee"},
+    {scenario = "WORLD_HUMAN_DRINKING", name = "Drink Beer"},
     {scenario = "WORLD_HUMAN_DRUG_DEALER", name = "Drug Dealer Smoking"},
     {scenario = "WORLD_HUMAN_DRUG_DEALER_HARD", name = "Drug Dealer Tough"},
     {scenario = "PROP_HUMAN_BUM_BIN", name = "Dumpster Dive"},
