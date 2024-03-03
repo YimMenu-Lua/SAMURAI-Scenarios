@@ -105,7 +105,7 @@ script.register_looped("YimScenarios", function()
 	end
 end)
 
-scenario_player:add_text("Search scenarios :")
+scenario_player:add_text("Search:")
 
 scenario_player:add_imgui(function()
     searchQuery, used = ImGui.InputText("", searchQuery, 32)
@@ -143,7 +143,7 @@ scenario_player:add_separator()
 scenario_player:add_imgui(function()
 local data = filteredScenarios[scenario_index+1]
 local ped = self.get_ped()
-    if ImGui.Button("Play") then
+    if ImGui.Button("	Play	") then
         if data.name == "Cook On BBQ" then
             local coords = ENTITY.GET_ENTITY_COORDS(ped, false)
             local heading = ENTITY.GET_ENTITY_HEADING(ped)
@@ -171,9 +171,25 @@ local ped = self.get_ped()
         end
     end
 
-    ImGui.SameLine()
+ImGui.SameLine()
+ImGui.Spacing()
+ImGui.SameLine()
+ImGui.Spacing()
+ImGui.SameLine()
+ImGui.Spacing()
+ImGui.SameLine()
+ImGui.Spacing()
+ImGui.SameLine()
+ImGui.Spacing()
+ImGui.SameLine()
+ImGui.Spacing()
+ImGui.SameLine()
+ImGui.Spacing()
+ImGui.SameLine()
+ImGui.Spacing()
+ImGui.SameLine()
 
-    if ImGui.Button("Stop") then
+    if ImGui.Button("	Stop	") then
         script.run_in_fiber(function()
             ENTITY.DELETE_ENTITY(prop)
 	    TASK.CLEAR_PED_TASKS(ped)
