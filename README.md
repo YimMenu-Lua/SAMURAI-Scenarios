@@ -9,7 +9,7 @@
 ![Screenshot 2024-01-30 111821](https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/0158d270-f870-415e-9033-cfd48d727573)
 
 > [!WARNING]
-> This script will no longer receive updates because it has been improved and moved to YimActions.
+> This script will no longer receive updates because it has been improved and moved to [YimActions](https://github.com/YimMenu-Lua/YimActions).
 
 # Credits
 
